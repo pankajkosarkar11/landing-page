@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="description" content="PT Solution - Data Science Class" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PT Solution - Data Science Class</title>
+
+  <!-- Google Fonts (example) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Open+Sans&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* (Same CSS as before) */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Open Sans', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #fff;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-bottom: 1px solid #eaeaea;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #1a73e8;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+    }
+    nav li {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #555;
+    }
+    nav li a:hover {
+      color: #1a73e8;
+    }
+    .header-phone {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      color: #555;
+      margin-left: 2rem;
+    }
+    .header-phone a {
+      color: #1a73e8;
+      text-decoration: none;
+    }
+    .header-phone a:hover {
+      text-decoration: underline;
+    }
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 4rem 2rem;
+      background: #fff url('https://images.unsplash.com/photo-1497493292307-31c376b6e479?ixlib=rb-4.0.3&q=80&fm=jpg&crop=entropy') center/cover no-repeat;
+      color: #fff;
+      min-height: 60vh;
+      position: relative;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 0;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .hero .batch-notice {
+      background-color: #ff6347;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+    .hero .btn {
+      background-color: #1a73e8;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .hero .btn:hover {
+      background-color: #1558b0;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background-color: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .feature-card h3 {
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .feature-card p {
+      line-height: 1.5;
+      color: #666;
+    }
+    .cta {
+      background-color: #1a73e8;
+      color: #fff;
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+    }
+    .cta .batch-notice {
+      background-color: #ff6347;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    .cta p {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    .cta .btn {
+      background-color: #fff;
+      color: #1a73e8;
+      padding: 0.75rem 2rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .cta .btn:hover {
+      background-color: #e0e0e0;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 2rem;
+      text-align: center;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+    .modal {
+      display: none; 
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background-color: #fff;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 8px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+    }
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 600;
+      text-align: center;
+    }
+    .modal-content label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .modal-content input {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .modal-content button {
+      background-color: #1a73e8;
+      color: #fff;
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background-color 0.3s ease;
+    }
+    .modal-content button:hover {
+      background-color: #1558b0;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.2rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+      color: #555;
+    }
+    /* Hidden spam field */
+    .hidden {
+      display: none;
+    }
+    @media screen and (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.25rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      header {
+        flex-direction: column;
+      }
+      .header-phone {
+        margin-left: 0;
+        margin-top: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">PT Solution</div>
+    <nav>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#cta">Sign Up</a></li>
+      </ul>
+    </nav>
+    <!-- Phone Number -->
+    <div class="header-phone">
+      <a href="tel:9579742664">Call Us: 9579742664</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <!-- Batch + Timing Notice -->
+      <div class="batch-notice">
+        New Batch Starts 1 March 2025 • 7:00 AM - 8:30 AM
+      </div>
+      <h1>Master Data Science with PT Solution</h1>
+      <p>Join our comprehensive Data Science course and gain hands-on experience with real-world projects.</p>
+      <button class="btn" onclick="openModal()">Enroll Now</button>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="feature-card">
+      <h3>Interactive Learning</h3>
+      <p>Practice coding and data analysis in live coding environments for immediate feedback.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Real-World Projects</h3>
+      <p>Work on projects using real datasets to develop practical industry skills.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Expert Mentors</h3>
+      <p>Learn from experienced data scientists and receive personalized guidance.</p>
+    </div>
+    <div class="feature-card">
+      <h3>Flexible Schedule</h3>
+      <p>Access course materials at any time. Study at your own pace from anywhere.</p>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section id="cta" class="cta">
+    <div class="batch-notice">
+      New Batch Starts 1 March 2025 • 7:00 AM - 8:30 AM
+    </div>
+    <h2>Ready to Begin Your Data Science Journey?</h2>
+    <p>Enroll now and unlock the power of data for your career. PT Solution is here to help you thrive in data science!</p>
+    <button class="btn" onclick="openModal()">Sign Up Today</button>
+  </section>
+
+  <!-- Modal Form -->
+  <div id="enrollModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">X</button>
+      <h2>Enroll in the Course</h2>
+      <!-- 
+        Netlify Forms integration:
+        - name="enrollForm": identifies the form in Netlify
+        - method="POST": how data is sent
+        - data-netlify="true": enables Netlify form handling
+        - netlify-honeypot="bot-field": spam prevention
+        - action="/success.html": redirect to success page
+      -->
+      <form
+        name="enrollForm"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        action="/success.html"
+      >
+        <!-- Hidden field for spam bots -->
+        <p class="hidden">
+          <label>Don’t fill this out: <input name="bot-field" /></label>
+        </p>
+
+        <label for="userName">Name</label>
+        <input type="text" id="userName" name="userName" placeholder="Enter your name" required />
+
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="Enter your phone number" required />
+
+        <label for="emailAddress">Email</label>
+        <input type="email" id="emailAddress" name="emailAddress" placeholder="Enter your email" required />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 PT Solution. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Open modal
+    function openModal() {
+      document.getElementById('enrollModal').style.display = 'flex';
+    }
+    // Close modal
+    function closeModal() {
+      document.getElementById('enrollModal').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
