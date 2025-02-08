@@ -15,8 +15,6 @@
   />
 
   <style>
-    /* (Same CSS as before) */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -63,6 +61,8 @@
       font-weight: 600;
       color: #555;
       margin-left: 2rem;
+      display: flex;
+      gap: 1.5rem;
     }
     .header-phone a {
       color: #1a73e8;
@@ -264,7 +264,6 @@
       border: none;
       color: #555;
     }
-    /* Hidden spam field */
     .hidden {
       display: none;
     }
@@ -295,9 +294,10 @@
         <li><a href="#cta">Sign Up</a></li>
       </ul>
     </nav>
-    <!-- Phone Number -->
+    <!-- Contact (Phone + Email) -->
     <div class="header-phone">
       <a href="tel:9579742664">Call Us: 9579742664</a>
+      <a href="mailto:ai.ptsolutions1@gmail.com">Email: ai.ptsolutions1@gmail.com</a>
     </div>
   </header>
 
@@ -350,14 +350,6 @@
     <div class="modal-content">
       <button class="close-btn" onclick="closeModal()">X</button>
       <h2>Enroll in the Course</h2>
-      <!-- 
-        Netlify Forms integration:
-        - name="enrollForm": identifies the form in Netlify
-        - method="POST": how data is sent
-        - data-netlify="true": enables Netlify form handling
-        - netlify-honeypot="bot-field": spam prevention
-        - action="/success.html": redirect to success page
-      -->
       <form
         name="enrollForm"
         method="POST"
@@ -365,7 +357,6 @@
         netlify-honeypot="bot-field"
         action="/thankyou.html"
       >
-        <!-- Hidden field for spam bots -->
         <p class="hidden">
           <label>Don’t fill this out: <input name="bot-field" /></label>
         </p>
